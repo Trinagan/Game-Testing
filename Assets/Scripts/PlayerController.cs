@@ -1,6 +1,8 @@
 using UnityEngine;
 using System.Collections.Generic;
 using System.Collections;
+using UnityEngine.Rendering.Universal;
+using Unity.VisualScripting;
 
 public class PlayerController : MonoBehaviour
 {
@@ -21,6 +23,8 @@ public class PlayerController : MonoBehaviour
 
         MoveH(inputVertical);
         MoveV(inputHorizontal);
+        followMouse();
+        
     }
 
     public void MoveH(float move)
@@ -31,5 +35,11 @@ public class PlayerController : MonoBehaviour
     public void MoveV(float move)
     {
         rig.linearVelocity = new Vector2(move * speed, rig.linearVelocity.x);
+    }
+
+    public void followMouse()
+    {
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        transform.rotation = Quaternion.LookRotation(Vector3.forward, mousePos - transform.position);
     }
 }
