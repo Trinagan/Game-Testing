@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 997
   m_ShowMode: 4
-  m_Title: Git for Unity
+  m_Title: Game
   m_RootView: {fileID: 6}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -48,7 +48,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 87
+  controlID: 42
   draggingID: 0
 --- !u!114 &3
 MonoBehaviour:
@@ -77,7 +77,7 @@ MonoBehaviour:
   - {fileID: 14}
   - {fileID: 13}
   m_Selected: 1
-  m_LastSelected: 1
+  m_LastSelected: 0
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -226,7 +226,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 42
+  controlID: 43
   draggingID: 0
 --- !u!114 &10
 MonoBehaviour:
@@ -252,7 +252,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 50}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 43
+  controlID: 44
   draggingID: 0
 --- !u!114 &11
 MonoBehaviour:
@@ -632,9 +632,9 @@ MonoBehaviour:
         treeIsCheckable: 0
         checkState: 0
       selectedNode:
-        path: origin/master
-        label: master
-        level: 2
+        path: 
+        label: 
+        level: 0
         isFolder: 0
         isContainer: 0
         isCollapsed: 0
@@ -678,7 +678,7 @@ MonoBehaviour:
     currentLocksHasUpdate: 0
     commitBody: 
     commitMessage: 
-    currentBranch: master
+    currentBranch: change-movement
     treeScroll: {x: 0, y: 0}
     treeChanges:
       assets:
@@ -737,18 +737,55 @@ MonoBehaviour:
     gitStatusEntries: []
     changedFilesText: No changed files
     lastCurrentBranchChangedEvent:
-      updatedTimeString: 2025-01-16T22:18:35.277+00:00
+      updatedTimeString: 2025-01-17T16:36:07.766+00:00
       cacheType: 1
     lastStatusEntriesChangedEvent:
-      updatedTimeString: 2025-01-16T22:18:50.106+00:00
+      updatedTimeString: 2025-01-17T16:36:08.807+00:00
       cacheType: 6
     lastLocksChangedEvent:
-      updatedTimeString: 2025-01-16T22:18:35.377+00:00
+      updatedTimeString: 2025-01-17T16:36:07.874+00:00
       cacheType: 7
   historyView:
     currentLogHasUpdate: 0
     currentTrackingStatusHasUpdate: 0
     logEntries:
+    - commitID: 2e8732653c958b5fa353428642ade4a22ae08f66
+      mergeA: 
+      mergeB: 
+      authorName: Trinagan
+      authorEmail: piotrlici@gmail.com
+      commitEmail: piotrlici@gmail.com
+      commitName: Trinagan
+      summary: Change movement style
+      description: Make the movement appropriate for top-down 2D instead of side
+        scroll/platformer
+      timeString: 2025-01-17T16:33:50.000+00:00
+      commitTimeString: 2025-01-17T16:33:50.000+00:00
+      changes:
+      - path: Assets\Prefabs\Player.prefab
+        fullPath: C:\Users\piotr\Game Testing\Assets\Prefabs\Player.prefab
+        projectPath: Assets\Prefabs\Player.prefab
+        originalPath: 
+        indexStatus: 3
+        workTreeStatus: 0
+      - path: Assets\Scenes\Test Scene.unity
+        fullPath: C:\Users\piotr\Game Testing\Assets\Scenes\Test Scene.unity
+        projectPath: Assets\Scenes\Test Scene.unity
+        originalPath: 
+        indexStatus: 3
+        workTreeStatus: 0
+      - path: Assets\Scripts\PlayerController.cs
+        fullPath: C:\Users\piotr\Game Testing\Assets\Scripts\PlayerController.cs
+        projectPath: Assets\Scripts\PlayerController.cs
+        originalPath: 
+        indexStatus: 3
+        workTreeStatus: 0
+      - path: UserSettings\Layouts\default-6000.dwlt
+        fullPath: C:\Users\piotr\Game Testing\UserSettings\Layouts\default-6000.dwlt
+        projectPath: UserSettings\Layouts\default-6000.dwlt
+        originalPath: 
+        indexStatus: 3
+        workTreeStatus: 0
     - commitID: f4c23d5787996072c8101157599a89b1e034e895
       mergeA: e2bcff49704c81ae68a5a597a25626bbf02a8401
       mergeB: 15c979d5ef72e07a3e3dbb59a5b6b3bc2c656852
@@ -1285,14 +1322,51 @@ MonoBehaviour:
         workTreeStatus: 0
     statusAhead: 0
     lastLogChangedEvent:
-      updatedTimeString: 2025-01-16T22:18:50.104+00:00
+      updatedTimeString: 2025-01-17T16:36:10.260+00:00
       cacheType: 3
     lastTrackingStatusChangedEvent:
-      updatedTimeString: 2025-01-16T22:18:50.128+00:00
+      updatedTimeString: 2025-01-17T16:36:08.832+00:00
       cacheType: 5
     historyControl:
       scroll: {x: 0, y: 0}
       entries:
+      - commitID: 2e8732653c958b5fa353428642ade4a22ae08f66
+        mergeA: 
+        mergeB: 
+        authorName: Trinagan
+        authorEmail: piotrlici@gmail.com
+        commitEmail: piotrlici@gmail.com
+        commitName: Trinagan
+        summary: Change movement style
+        description: Make the movement appropriate for top-down 2D instead of side
+          scroll/platformer
+        timeString: 2025-01-17T16:33:50.000+00:00
+        commitTimeString: 2025-01-17T16:33:50.000+00:00
+        changes:
+        - path: Assets\Prefabs\Player.prefab
+          fullPath: C:\Users\piotr\Game Testing\Assets\Prefabs\Player.prefab
+          projectPath: Assets\Prefabs\Player.prefab
+          originalPath: 
+          indexStatus: 3
+          workTreeStatus: 0
+        - path: Assets\Scenes\Test Scene.unity
+          fullPath: C:\Users\piotr\Game Testing\Assets\Scenes\Test Scene.unity
+          projectPath: Assets\Scenes\Test Scene.unity
+          originalPath: 
+          indexStatus: 3
+          workTreeStatus: 0
+        - path: Assets\Scripts\PlayerController.cs
+          fullPath: C:\Users\piotr\Game Testing\Assets\Scripts\PlayerController.cs
+          projectPath: Assets\Scripts\PlayerController.cs
+          originalPath: 
+          indexStatus: 3
+          workTreeStatus: 0
+        - path: UserSettings\Layouts\default-6000.dwlt
+          fullPath: C:\Users\piotr\Game Testing\UserSettings\Layouts\default-6000.dwlt
+          projectPath: UserSettings\Layouts\default-6000.dwlt
+          originalPath: 
+          indexStatus: 3
+          workTreeStatus: 0
       - commitID: f4c23d5787996072c8101157599a89b1e034e895
         mergeA: e2bcff49704c81ae68a5a597a25626bbf02a8401
         mergeB: 15c979d5ef72e07a3e3dbb59a5b6b3bc2c656852
@@ -1962,7 +2036,7 @@ MonoBehaviour:
       installSettingsHidden: 0
     hasRemote: 1
     lastCurrentRemoteChangedEvent:
-      updatedTimeString: 2025-01-16T22:18:35.277+00:00
+      updatedTimeString: 2025-01-17T16:32:11.965+00:00
       cacheType: 1
     newRepositoryRemoteUrl: https://github.com/Trinagan/Game-Testing.git
     repositoryRemoteName: origin
@@ -1975,7 +2049,7 @@ MonoBehaviour:
       newGitEmail: piotrlici@gmail.com
       needsSaving: 0
       lastCheckUserChangedEvent:
-        updatedTimeString: 2025-01-16T22:17:58.645+00:00
+        updatedTimeString: 2025-01-17T16:32:31.075+00:00
         cacheType: 8
       configSettingsHidden: 1
     repositorySettingsHidden: 0
@@ -2008,13 +2082,13 @@ MonoBehaviour:
         gitFileStatus: 0
         lockedAt: 1 Jan 0001, 00:00
     lastCurrentRemoteChangedEvent:
-      updatedTimeString: 2025-01-16T22:18:35.277+00:00
+      updatedTimeString: 2025-01-17T16:36:07.766+00:00
       cacheType: 1
     lastLocksChangedEvent:
-      updatedTimeString: 2025-01-16T22:18:35.377+00:00
+      updatedTimeString: 2025-01-17T16:36:07.874+00:00
       cacheType: 7
     lastStatusEntriesChangedEvent:
-      updatedTimeString: 2025-01-16T22:18:50.106+00:00
+      updatedTimeString: 2025-01-17T16:36:08.807+00:00
       cacheType: 6
     lockedFiles: []
     gitStatusEntries: []
@@ -2035,7 +2109,7 @@ MonoBehaviour:
   currentRemoteUrl: https://github.com/Trinagan/Game-Testing.git
   statusAhead: 0
   statusBehind: 0
-  hasItemsToCommit: 0
+  hasItemsToCommit: 1
   isTrackingRemoteBranch: 1
   currentBranchContent:
     m_Text: master
@@ -2048,13 +2122,13 @@ MonoBehaviour:
     m_Tooltip: Url of the origin remote
     m_TextWithWhitespace: "https://github.com/Trinagan/Game-Testing.git\u200B"
   lastCurrentBranchAndRemoteChangedEvent:
-    updatedTimeString: 2025-01-16T22:18:35.277+00:00
+    updatedTimeString: 2025-01-17T18:06:17.039+00:00
     cacheType: 1
   lastTrackingStatusChangedEvent:
-    updatedTimeString: 2025-01-16T22:18:50.128+00:00
+    updatedTimeString: 2025-01-17T18:06:17.097+00:00
     cacheType: 5
   lastStatusEntriesChangedEvent:
-    updatedTimeString: 2025-01-16T22:18:50.106+00:00
+    updatedTimeString: 2025-01-17T18:06:17.070+00:00
     cacheType: 6
   pullButtonContent:
     m_Text: Pull
@@ -2128,7 +2202,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets
+    - Assets/Scripts
     m_Globs: []
     m_ProductIds: 
     m_AnyWithAssetOrigin: 0
@@ -2138,16 +2212,16 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets
+  - Assets/Scripts
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\piotr\Game Testing
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 84ad0000
-    m_LastClickedID: 44420
-    m_ExpandedIDs: 0000000084ad0000
+    m_SelectedIDs: 7aaf0000
+    m_LastClickedID: 44922
+    m_ExpandedIDs: 00000000a2ad0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -2176,7 +2250,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 0000000084ad0000
+    m_ExpandedIDs: 00000000a2ad0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -2324,7 +2398,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 7e55ffff0cfbfffffaac0000
+      m_ExpandedIDs: 0cfbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -2612,11 +2686,11 @@ MonoBehaviour:
       displayed: 0
       id: Scene View/Scene Visibility
       index: 9
-      contents: '{"m_Layout":4,"m_Collapsed":false,"m_Floating":false,"m_FloatingSnapOffset":{"x":0.0,"y":0.0},"m_SnapOffsetDelta":{"x":24.0,"y":0.0},"m_FloatingSnapCorner":0,"m_Size":{"x":0.0,"y":0.0},"m_SizeOverridden":false}'
+      contents: '{"m_Layout":4,"m_Collapsed":false,"m_Floating":false,"m_FloatingSnapOffset":{"x":24.0,"y":0.0},"m_SnapOffsetDelta":{"x":0.0,"y":0.0},"m_FloatingSnapCorner":0,"m_Size":{"x":0.0,"y":0.0},"m_SizeOverridden":false}'
       floating: 0
       collapsed: 0
-      snapOffset: {x: 0, y: 0}
-      snapOffsetDelta: {x: 24, y: 0}
+      snapOffset: {x: 24, y: 0}
+      snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
       layout: 4
       size: {x: 0, y: 0}
@@ -2928,9 +3002,9 @@ MonoBehaviour:
   m_AudioPlay: 0
   m_DebugDrawModesUseInteractiveLightBakingData: 0
   m_Position:
-    m_Target: {x: 1.1890076, y: -0.012915056, z: 0.97810924}
+    m_Target: {x: -1.3072776, y: 0.34332865, z: -0.07058575}
     speed: 2
-    m_Value: {x: 1.1890076, y: -0.012915056, z: 0.97810924}
+    m_Value: {x: -1.3072776, y: 0.34332865, z: -0.07058575}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -2980,9 +3054,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 6.956451
+    m_Target: 6.558997
     speed: 2
-    m_Value: 6.956451
+    m_Value: 6.558997
   m_Ortho:
     m_Target: 1
     speed: 2
