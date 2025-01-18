@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
     
     void Start()
     {
+        Cursor.visible = false;
         rig = GetComponent<Rigidbody2D>();
     }
 
