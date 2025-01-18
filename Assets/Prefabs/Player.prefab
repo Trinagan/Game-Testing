@@ -167,7 +167,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 7
-  bulletSpeed: 1.5
+  bulletSpeed: 2.5
+  bulletLifetime: 1
+  bulletOffsetDistance: 2
   bullet: {fileID: 5697233258256555505, guid: b5937e7bcc264b2419ac6f026475aff1, type: 3}
 --- !u!1 &5095051496015061337
 GameObject:
