@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     private float inputHorizontal;
     public float bulletSpeed = 1.5f;
     public float bulletLifetime = 1f;
+    public float bulletOffsetDistance = 2;
     private Vector3 mousePos;
     public GameObject bullet;
     
@@ -32,7 +33,7 @@ public class PlayerController : MonoBehaviour
         FollowMouse();
         ShootBullet();
         
-        Debug.Log(mousePos- transform.position);
+        // Debug.Log(mousePos- transform.position);
     }
 
     public void MoveH(float move)
@@ -54,13 +55,18 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            GameObject bulletInstance = (GameObject) Instantiate(bullet, transform.position, transform.rotation);
+            // Create the mouse aim direction vector and normalize it
+            Vector3 aimVector = transform.position - mousePos;
+            Vector3 aimVectorNormalized = aimVector.normalized;
+            // Offset the vector
+            Vector3 bulletSpawnPos = (aimVectorNormalized * (bulletOffsetDistance * -1));
+            GameObject bulletInstance = (GameObject) Instantiate(bullet, new Vector3(transform.position.x + bulletSpawnPos.x, transform.position.y + bulletSpawnPos.y, 1), transform.rotation);
             Rigidbody2D bulletRig = bulletInstance.GetComponent<Rigidbody2D>();
 
             Vector2 aimPos = mousePos - transform.position;
             bulletRig.AddForce((bulletSpeed * 1000) * aimPos.normalized, ForceMode2D.Force);
 
-            Destroy(bulletInstance, bulletLifetime);
+           // Destroy(bulletInstance, bulletLifetime);
         }
     }
 }
