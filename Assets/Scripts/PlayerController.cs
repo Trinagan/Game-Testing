@@ -57,11 +57,11 @@ public class PlayerController : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             // Create the mouse aim direction vector and normalize it
-            Vector3 aimVector = transform.position - mousePos;
-            Vector3 aimVectorNormalized = aimVector.normalized;
+            Vector2 aimVector = transform.position - mousePos;
+            Vector2 aimVectorNormalized = aimVector.normalized;
             // Offset the vector
-            Vector3 bulletSpawnPos = (aimVectorNormalized * (bulletOffsetDistance * -1));
-            GameObject bulletInstance = (GameObject) Instantiate(bullet, new Vector3(transform.position.x + bulletSpawnPos.x, transform.position.y + bulletSpawnPos.y, 1), transform.rotation);
+            Vector2 bulletSpawnPos = (aimVectorNormalized * (bulletOffsetDistance * -1));
+            GameObject bulletInstance = (GameObject) Instantiate(bullet, new Vector2(transform.position.x + bulletSpawnPos.x, transform.position.y + bulletSpawnPos.y), transform.rotation);
             Rigidbody2D bulletRig = bulletInstance.GetComponent<Rigidbody2D>();
 
             Vector2 aimPos = mousePos - transform.position;
