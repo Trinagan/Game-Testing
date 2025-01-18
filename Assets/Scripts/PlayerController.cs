@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     private float inputVertical;
     private float inputHorizontal;
     public float bulletSpeed = 1.5f;
+    public float bulletLifetime = 1f;
     private Vector3 mousePos;
     public GameObject bullet;
     
@@ -59,6 +60,7 @@ public class PlayerController : MonoBehaviour
             Vector2 aimPos = mousePos - transform.position;
             bulletRig.AddForce((bulletSpeed * 1000) * aimPos.normalized, ForceMode2D.Force);
 
+            Destroy(bulletInstance, bulletLifetime);
         }
     }
 }
