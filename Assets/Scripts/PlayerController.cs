@@ -1,9 +1,5 @@
 using UnityEngine;
-using System.Collections.Generic;
-using System.Collections;
-using UnityEngine.Rendering.Universal;
-using Unity.VisualScripting;
-using UnityEngine.Rendering;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -14,6 +10,7 @@ public class PlayerController : MonoBehaviour
     public float bulletSpeed = 1.5f;
     public float bulletLifetime = 1f;
     public float bulletOffsetDistance = 2;
+    public float health = 100;
     private Vector3 mousePos;
     public GameObject bullet;
     
@@ -33,6 +30,11 @@ public class PlayerController : MonoBehaviour
         MoveV(inputHorizontal);
         FollowMouse();
         ShootBullet();
+
+        if (health <= 0)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
         
         // Debug.Log(mousePos- transform.position);
     }
@@ -68,6 +70,14 @@ public class PlayerController : MonoBehaviour
             bulletRig.AddForce((bulletSpeed * 1000) * aimPos.normalized, ForceMode2D.Force);
 
            // Destroy(bulletInstance, bulletLifetime);
+        }
+    }
+
+    void OnCollisionEnter2D (Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            health -= 50;
         }
     }
 }
