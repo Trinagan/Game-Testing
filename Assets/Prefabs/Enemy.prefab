@@ -253,7 +253,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 7
+  m_Speed: 6
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -277,8 +277,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 354a8052c7d21f04f98f3b1325870b6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 5825559085264556038, guid: a377b34f9bac8fe4ca4e273049a6a754, type: 3}
+  target: {fileID: 0}
   detector: {fileID: 5778358114887162281}
+  bullet: {fileID: 7143816630715807026, guid: b5937e7bcc264b2419ac6f026475aff1, type: 3}
   health: 100
   playerLayer:
     serializedVersion: 2

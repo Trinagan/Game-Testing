@@ -8,7 +8,7 @@ public class CameraTarget : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -18,7 +18,7 @@ public class CameraTarget : MonoBehaviour
         Vector2 mousePos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
 
         Vector2 cameraPos = playerPos + (mousePos - playerPos) * cameraShiftScalar;
-        
+
         transform.position = new Vector3(cameraPos.x, cameraPos.y, -10);
     }
 }

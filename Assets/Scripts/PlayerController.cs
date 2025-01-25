@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
     public float health = 100;
     private Vector3 mousePos;
     public GameObject bullet;
-    
+
     void Start()
     {
         Cursor.visible = false;
@@ -35,7 +35,7 @@ public class PlayerController : MonoBehaviour
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
-        
+
         // Debug.Log(mousePos- transform.position);
     }
 
@@ -63,21 +63,26 @@ public class PlayerController : MonoBehaviour
             Vector2 aimVectorNormalized = aimVector.normalized;
             // Offset the vector
             Vector2 bulletSpawnPos = (aimVectorNormalized * (bulletOffsetDistance * -1));
-            GameObject bulletInstance = (GameObject) Instantiate(bullet, new Vector2(transform.position.x + bulletSpawnPos.x, transform.position.y + bulletSpawnPos.y), transform.rotation);
+            GameObject bulletInstance = (GameObject)Instantiate(bullet, new Vector2(transform.position.x + bulletSpawnPos.x, transform.position.y + bulletSpawnPos.y), transform.rotation);
             Rigidbody2D bulletRig = bulletInstance.GetComponent<Rigidbody2D>();
 
             Vector2 aimPos = mousePos - transform.position;
             bulletRig.AddForce((bulletSpeed * 1000) * aimPos.normalized, ForceMode2D.Force);
 
-           // Destroy(bulletInstance, bulletLifetime);
+            // Destroy(bulletInstance, bulletLifetime);
         }
     }
 
-    void OnCollisionEnter2D (Collision2D collision)
+    void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
             health -= 50;
+        }
+
+        if (collision.gameObject.CompareTag("Bullet"))
+        {
+            health -= 20;
         }
     }
 }

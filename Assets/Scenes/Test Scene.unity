@@ -11219,6 +11219,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a377b34f9bac8fe4ca4e273049a6a754, type: 3}
+--- !u!1 &1178401077 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5778358114887162281, guid: 2a0632e5d7ea5a0429a2cb28d7dcc298, type: 3}
+  m_PrefabInstance: {fileID: 645213175304144721}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1196194916
 GameObject:
   m_ObjectHideFlags: 0
@@ -11361,7 +11366,7 @@ MonoBehaviour:
   m_BuildHeightMesh: 0
   m_MinRegionArea: 0
   m_HideEditorLogs: 0
-  m_NavMeshData: {fileID: 23800000, guid: e21e0d3a88f81cc42b8e518efcda4542, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: ccf6dd040790f5e40b5d807601a7718f, type: 2}
 --- !u!4 &2143269676
 Transform:
   m_ObjectHideFlags: 0
@@ -11393,6 +11398,10 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 950703261}
+    - target: {fileID: -4828223706184066975, guid: 2a0632e5d7ea5a0429a2cb28d7dcc298, type: 3}
+      propertyPath: detector
+      value: 
+      objectReference: {fileID: 1178401077}
     - target: {fileID: -4828223706184066975, guid: 2a0632e5d7ea5a0429a2cb28d7dcc298, type: 3}
       propertyPath: playerLayer.m_Bits
       value: 128
