@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 7522969789806341306}
   - component: {fileID: 7890868550791468927}
   - component: {fileID: 2901123705970476706}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -166,7 +166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34eef5ecbccfee3408e892be5d1b984c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 7
+  speed: 9
   bulletSpeed: 2.5
   bulletLifetime: 1
   bulletOffsetDistance: 1
@@ -182,7 +182,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4397185044534429659}
   - component: {fileID: 4893688289892808863}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: directionPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
