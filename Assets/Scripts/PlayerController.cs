@@ -80,7 +80,7 @@ public class PlayerController : MonoBehaviour
             health -= 50;
         }
 
-        if (collision.gameObject.CompareTag("Bullet"))
+        if (collision.gameObject.CompareTag("Bullet") && collision != null)
         {
             health -= 20;
         }
