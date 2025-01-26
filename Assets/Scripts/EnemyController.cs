@@ -3,15 +3,20 @@ using UnityEngine.AI;
 
 public class EnemyController : MonoBehaviour
 {
-    [SerializeField] Transform target;
+    public Transform target;
     NavMeshAgent agent;
     public GameObject detector;
     public Rigidbody2D bullet;
     private CircleCollider2D col;
+    private PlayerController playerController;
     public float health = 100;
-    private float fleeDistance = 15f;
-    private int fleeAngleSteps = 12;
-    private float stoppingDistance;
+    public float contactDamage = 20;
+    public float fleeDistance = 15f;
+    public int fleeAngleSteps = 12;
+    public float stoppingDistance;
+    public float minStoppingDistance = 5f;
+    public float maxStoppingDistance = 8f;
+    public bool dealDamage;
     private bool playerDetected = false;
     private bool followPlayer = false;
     private bool playerInSight = false;
@@ -28,10 +33,12 @@ public class EnemyController : MonoBehaviour
         AlienAI
     };
 
-    public EnemyTypes enemyType = EnemyTypes.SoliderAI;
+    public EnemyTypes enemyType;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        playerController = GameObject.Find("Player").GetComponent<PlayerController>();
         layerMasks = playerLayer | wallLayer;
         target = GameObject.Find("Player").GetComponent<Transform>();
         col = detector.GetComponentInChildren<CircleCollider2D>();
@@ -39,16 +46,25 @@ public class EnemyController : MonoBehaviour
         agent.updateRotation = false;
         agent.updateUpAxis = false;
 
-        if (enemyType.ToString() == "SoliderAI")
+        switch (enemyType)
         {
-            originalPos = transform.position;
-            stoppingDistance = Random.Range(5.0f, 8.0f);
-            agent.stoppingDistance = stoppingDistance;
-        }
+            case EnemyTypes.SoliderAI:
+                originalPos = transform.position;
+                stoppingDistance = Random.Range(minStoppingDistance, maxStoppingDistance);
+                agent.stoppingDistance = stoppingDistance;
+                dealDamage = true;
+                break;
 
-        if (enemyType.ToString() == "ScientistAI")
-        {
-            agent.stoppingDistance = 15;
+            case EnemyTypes.ScientistAI:
+                dealDamage = false;
+                break;
+
+            case EnemyTypes.AlienAI:
+                originalPos = transform.position;
+                stoppingDistance = 0f;
+                agent.stoppingDistance = stoppingDistance;
+                dealDamage = true;
+                break;
         }
 
     }
@@ -56,21 +72,17 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (enemyType.ToString() == "SoliderAI")
+        switch(enemyType)
         {
+            case EnemyTypes.SoliderAI | EnemyTypes.AlienAI:
             FollowPlayer();
+            break;
+
+            case EnemyTypes.ScientistAI:
+            RunAwayFromPlayer();
+            break;
         }
 
-        if (enemyType.ToString() == "ScientistAI")
-        {
-            RunAwayFromPlayer();
-        }
-        
-        /* if (playerDetected && followPlayer && agent.remainingDistance <= agent.stoppingDistance)
-        {
-            InvokeRepeating(nameof(ShootPlayer), 0, 5);
-        }
- */
         if (health <= 0)
         {
             Destroy(gameObject);
@@ -121,7 +133,7 @@ public class EnemyController : MonoBehaviour
     void RunAwayFromPlayer()
     {
         OnRaycastHit2D();
-        if(playerDetected && playerInSight)
+        if (playerDetected && playerInSight)
         {
             Vector2 oppositePlayerDirection = transform.position - target.transform.position;
             oppositePlayerDirection.Normalize();
@@ -134,45 +146,20 @@ public class EnemyController : MonoBehaviour
                 Vector2 rotatedDirection = Quaternion.Euler(0, angle, 0) * oppositePlayerDirection;
                 Vector2 potentialFleePosition = (Vector2)transform.position + rotatedDirection * fleeDistance;
 
-            if (NavMesh.SamplePosition(potentialFleePosition, out NavMeshHit hit, fleeDistance, NavMesh.AllAreas))
-            {
-                float distanceToPlayer = Vector2.Distance(hit.position, target.position);
-
-                if (distanceToPlayer > maxDistanceFromPlayer)
+                if (NavMesh.SamplePosition(potentialFleePosition, out NavMeshHit hit, fleeDistance, NavMesh.AllAreas))
                 {
-                    maxDistanceFromPlayer = distanceToPlayer;
-                    bestFleePosition = hit.position;
+                    float distanceToPlayer = Vector2.Distance(hit.position, target.position);
+
+                    if (distanceToPlayer > maxDistanceFromPlayer)
+                    {
+                        maxDistanceFromPlayer = distanceToPlayer;
+                        bestFleePosition = hit.position;
+                    }
                 }
-            }
-            /*             RaycastHit2D hit = Physics2D.Raycast(transform.position, oppositePlayerDirection, 15);
-                        Debug.DrawRay(transform.position, oppositePlayerDirection);
-                        if(hit.distance < 15)
-                        {
-                            Vector3 v3 = (Vector3)oppositePlayerDirection;
-                            Quaternion rotation = Quaternion.Euler(0, 10, 0);
-                            v3 = rotation * v3;
-                            oppositePlayerDirection = (Vector2)v3;
-                        }
-                        else
-                        {
-                            agent.SetDestination(oppositePlayerDirection);
-                        } */
             }
             agent.SetDestination(bestFleePosition);
             FaceDirection(bestFleePosition);
         }
-    }
-
-    void ShootPlayer()
-    {
-        Vector2 aimVector = transform.position - target.transform.position;
-        Vector2 aimVectorNormalized = aimVector.normalized;
-
-        Vector2 bulletSpawnPos = aimVectorNormalized * (2 * -1);
-        Rigidbody2D bulletInstance = Instantiate(bullet, new Vector2(transform.position.x + bulletSpawnPos.x, transform.position.y + bulletSpawnPos.y), transform.rotation);
-
-        Vector2 aimPos = target.transform.position - transform.position;
-        bulletInstance.AddForce((1.5f * 1000) * aimPos.normalized, ForceMode2D.Force);
     }
 
     void OnRaycastHit2D()
@@ -212,6 +199,11 @@ public class EnemyController : MonoBehaviour
         if (collision.gameObject.CompareTag("Bullet"))
         {
             health -= 30;
+        }
+
+        if (collision.gameObject.CompareTag("Player") && dealDamage)
+        {
+            playerController.health -= contactDamage;
         }
     }
 }

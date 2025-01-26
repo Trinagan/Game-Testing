@@ -100,7 +100,7 @@ GameObject:
   - component: {fileID: -5832111639944807627}
   - component: {fileID: 2947850686174167451}
   - component: {fileID: 4146842405914587962}
-  - component: {fileID: -4828223706184066975}
+  - component: {fileID: -1543654196221234498}
   m_Layer: 0
   m_Name: Enemy Template
   m_TagString: Enemy
@@ -265,7 +265,7 @@ NavMeshAgent:
   m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &-4828223706184066975
+--- !u!114 &-1543654196221234498
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -281,12 +281,20 @@ MonoBehaviour:
   detector: {fileID: 5778358114887162281}
   bullet: {fileID: 7143816630715807026, guid: b5937e7bcc264b2419ac6f026475aff1, type: 3}
   health: 100
+  contactDamage: 20
+  fleeDistance: 15
+  fleeAngleSteps: 12
+  stoppingDistance: 0
+  minStoppingDistance: 5
+  maxStoppingDistance: 8
+  dealDamage: 1
   playerLayer:
     serializedVersion: 2
     m_Bits: 128
   wallLayer:
     serializedVersion: 2
     m_Bits: 64
+  enemyType: 0
 --- !u!1 &5778358114887162281
 GameObject:
   m_ObjectHideFlags: 0
