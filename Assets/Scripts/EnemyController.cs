@@ -6,6 +6,7 @@ public class EnemyController : MonoBehaviour
     public Transform target;
     NavMeshAgent agent;
     public GameObject detector;
+    public Rigidbody2D rig;
     public Rigidbody2D bullet;
     private CircleCollider2D col;
     private PlayerController playerController;
@@ -43,6 +44,7 @@ public class EnemyController : MonoBehaviour
         target = GameObject.Find("Player").GetComponent<Transform>();
         col = detector.GetComponentInChildren<CircleCollider2D>();
         agent = GetComponent<NavMeshAgent>();
+        rig = GetComponent<Rigidbody2D>();
         agent.updateRotation = false;
         agent.updateUpAxis = false;
 
@@ -74,12 +76,16 @@ public class EnemyController : MonoBehaviour
     {
         switch(enemyType)
         {
-            case EnemyTypes.SoliderAI | EnemyTypes.AlienAI:
+            case EnemyTypes.SoliderAI:
             FollowPlayer();
             break;
 
             case EnemyTypes.ScientistAI:
             RunAwayFromPlayer();
+            break;
+
+            case EnemyTypes.AlienAI:
+            FollowPlayer();
             break;
         }
 

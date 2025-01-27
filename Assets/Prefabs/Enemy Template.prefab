@@ -188,7 +188,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3125129196646238711}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -279,6 +279,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   detector: {fileID: 5778358114887162281}
+  rig: {fileID: 0}
   bullet: {fileID: 7143816630715807026, guid: b5937e7bcc264b2419ac6f026475aff1, type: 3}
   health: 100
   contactDamage: 20

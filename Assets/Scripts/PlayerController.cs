@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour
 {
     private Rigidbody2D rig;
+    public Transform weaponOffset;
     public float speed = 7;
     private float inputVertical;
     private float inputHorizontal;
@@ -18,6 +19,7 @@ public class PlayerController : MonoBehaviour
     {
         Cursor.visible = false;
         rig = GetComponent<Rigidbody2D>();
+        weaponOffset = GameObject.Find("Player/weaponOffset").GetComponent<Transform>();
     }
 
     void Update()
@@ -61,13 +63,12 @@ public class PlayerController : MonoBehaviour
             // Create the mouse aim direction vector and normalize it
             Vector2 aimVector = transform.position - mousePos;
             Vector2 aimVectorNormalized = aimVector.normalized;
-            // Offset the vector
-            Vector2 bulletSpawnPos = (aimVectorNormalized * (bulletOffsetDistance * -1));
-            GameObject bulletInstance = (GameObject)Instantiate(bullet, new Vector2(transform.position.x + bulletSpawnPos.x, transform.position.y + bulletSpawnPos.y), transform.rotation);
+
+            GameObject bulletInstance = (GameObject)Instantiate(bullet, weaponOffset.transform.position, transform.rotation);
             Rigidbody2D bulletRig = bulletInstance.GetComponent<Rigidbody2D>();
 
             Vector2 aimPos = mousePos - transform.position;
-            bulletRig.AddForce((bulletSpeed * 1000) * aimPos.normalized, ForceMode2D.Force);
+            bulletRig.linearVelocity = aimPos.normalized * bulletSpeed;
 
             // Destroy(bulletInstance, bulletLifetime);
         }
