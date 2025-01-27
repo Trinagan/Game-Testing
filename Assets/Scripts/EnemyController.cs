@@ -9,6 +9,7 @@ public class EnemyController : MonoBehaviour
     public Rigidbody2D rig;
     public Rigidbody2D bullet;
     private CircleCollider2D col;
+    public float detectRange;
     private PlayerController playerController;
     public float health = 100;
     public float contactDamage = 20;
@@ -17,6 +18,8 @@ public class EnemyController : MonoBehaviour
     public float stoppingDistance;
     public float minStoppingDistance = 5f;
     public float maxStoppingDistance = 8f;
+    private float timeColliding;
+    public float timeThreshold = 1f;
     public bool dealDamage;
     private bool playerDetected = false;
     private bool followPlayer = false;
@@ -43,6 +46,7 @@ public class EnemyController : MonoBehaviour
         layerMasks = playerLayer | wallLayer;
         target = GameObject.Find("Player").GetComponent<Transform>();
         col = detector.GetComponentInChildren<CircleCollider2D>();
+        col.radius = detectRange;
         agent = GetComponent<NavMeshAgent>();
         rig = GetComponent<Rigidbody2D>();
         agent.updateRotation = false;
@@ -185,7 +189,7 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter2D(Collider2D col)
+    void OnTriggerStay2D(Collider2D col)
     {
         if (col.gameObject.CompareTag("Player"))
         {
@@ -200,6 +204,22 @@ public class EnemyController : MonoBehaviour
             playerDetected = false;
         }
     }
+
+    void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player") && dealDamage)
+        {
+            if (timeColliding < timeThreshold)
+            {
+                timeColliding += Time.deltaTime;
+            }
+            else
+            {
+                playerController.health -= contactDamage;
+                timeColliding = 0f;
+            }
+        }
+    }
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Bullet"))
@@ -209,7 +229,11 @@ public class EnemyController : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Player") && dealDamage)
         {
-            playerController.health -= contactDamage;
+            timeColliding = 0f;
+
+            playerController.health -= 20f;
         }
     }
+
+    
 }

@@ -281,6 +281,7 @@ MonoBehaviour:
   detector: {fileID: 5778358114887162281}
   rig: {fileID: 0}
   bullet: {fileID: 7143816630715807026, guid: b5937e7bcc264b2419ac6f026475aff1, type: 3}
+  detectRange: 12
   health: 100
   contactDamage: 20
   fleeDistance: 15
@@ -288,6 +289,7 @@ MonoBehaviour:
   stoppingDistance: 0
   minStoppingDistance: 5
   maxStoppingDistance: 8
+  timeThreshold: 1
   dealDamage: 1
   playerLayer:
     serializedVersion: 2
