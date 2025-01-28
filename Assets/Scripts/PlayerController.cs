@@ -13,9 +13,12 @@ public class PlayerController : MonoBehaviour
     public float health = 100;
     private Vector3 mousePos;
     public GameObject bullet;
+    public PlayerHealthSystem playerHealthSystem;
+
     
     void Start()
     {
+        playerHealthSystem = new PlayerHealthSystem(this); // Invoke the PHS and pass myself to it so it can call back
         Cursor.visible = false;
         rig = GetComponent<Rigidbody2D>();
     }
@@ -31,12 +34,22 @@ public class PlayerController : MonoBehaviour
         FollowMouse();
         ShootBullet();
 
-        if (health <= 0)
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        }
+        playerHealthSystem.CalculateStats();
+
+        // This is no longer how we handle player health and death. PlayerHealthSystem will
+        // manage it all and call back to this controller's OnPlayerDeath method when all limbs are deadge
+        //if (health <= 0)
+        //{
+        //    SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        //}
         
         // Debug.Log(mousePos- transform.position);
+    }
+
+    public void OnPlayerDeath()
+    {
+        // Trigger animations, fiddle with whatever stats you need, change gamestate etc etc
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void MoveH(float move)
