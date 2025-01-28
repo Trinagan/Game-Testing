@@ -101,6 +101,7 @@ GameObject:
   - component: {fileID: 2947850686174167451}
   - component: {fileID: 4146842405914587962}
   - component: {fileID: -1543654196221234498}
+  - component: {fileID: 5515378952719595604}
   m_Layer: 0
   m_Name: Enemy Template
   m_TagString: Enemy
@@ -298,6 +299,24 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   enemyType: 0
+--- !u!114 &5515378952719595604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3125129196646238711}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 363dd73a8a945c440a74e7c31ca30ecf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scrapDrop: 40
+  biomassDrop: 40
+  weaponPartsDrop: 40
+  scrap: {fileID: 2681694294283830877, guid: c2d7c6b74df91d74f9bf60a3ae48eebd, type: 3}
+  biomass: {fileID: 7800450342669060274, guid: 958630773490c3441b7afda6985e43ba, type: 3}
+  weaponParts: {fileID: 5251657029546138492, guid: f82e45b23861e2d4f9cdab85e0a52613, type: 3}
 --- !u!1 &5778358114887162281
 GameObject:
   m_ObjectHideFlags: 0
