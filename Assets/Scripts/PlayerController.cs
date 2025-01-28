@@ -46,6 +46,11 @@ public class PlayerController : MonoBehaviour
         // Debug.Log(mousePos- transform.position);
     }
 
+    public void OnTakeDamage(int DamageAmount)
+    {
+        playerHealthSystem.TakeDamage(DamageAmount);
+    }
+
     public void OnPlayerDeath()
     {
         // Trigger animations, fiddle with whatever stats you need, change gamestate etc etc
@@ -90,7 +95,11 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            health -= 50;
+            // This will need to be a bit smarter in future.
+            // Probably pre-calc the total raw damage in the enemy controller
+            // which'd be a convenient way to factor in enemy stats etc etc before
+            // applying mitigation in the PHS
+            OnTakeDamage(50); 
         }
     }
 }
