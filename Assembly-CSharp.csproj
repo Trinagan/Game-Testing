@@ -72,6 +72,7 @@
     <Compile Include="Assets\Scripts\CameraTarget.cs" />
     <Compile Include="Assets\Scripts\DestroyOnCollision.cs" />
     <Compile Include="Assets\Scripts\DisplayHealth.cs" />
+    <Compile Include="Assets\Scripts\ResourceManager.cs" />
     <Compile Include="Assets\Scripts\ResourceOnDrop.cs" />
   </ItemGroup>
   <ItemGroup>
