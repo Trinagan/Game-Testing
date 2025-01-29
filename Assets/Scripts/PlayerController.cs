@@ -56,6 +56,7 @@ public class PlayerController : MonoBehaviour
 
     public void ShootBullet()
     {
+        // Rewrite in the future to call the Weapon framework to shoot a projectile.
         if (Input.GetMouseButtonDown(0))
         {
             // Create the mouse aim direction vector and normalize it

@@ -15,12 +15,17 @@ public class WeaponManager : MonoBehaviour
         public int magSize;
         public float reloadTime;
         public GameObject projectile;
+        public float fireRate;
 
-        public WeaponConfigurable (String name, WeaponType type, GameObject proj) 
+        public WeaponConfigurable (String name, WeaponType type, GameObject proj, int maxAmmo, int maxMagAmmo, float reload, float firerate) 
         {
             displayName = name;
             weaponType = type;
             projectile = proj;
+            maxReserves = maxAmmo;
+            magSize = maxMagAmmo;
+            reloadTime = reload;
+            fireRate = firerate;
         }
     }
 
