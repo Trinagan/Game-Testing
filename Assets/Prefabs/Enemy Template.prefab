@@ -317,6 +317,9 @@ MonoBehaviour:
   scrap: {fileID: 2681694294283830877, guid: c2d7c6b74df91d74f9bf60a3ae48eebd, type: 3}
   biomass: {fileID: 7800450342669060274, guid: 958630773490c3441b7afda6985e43ba, type: 3}
   weaponParts: {fileID: 5251657029546138492, guid: f82e45b23861e2d4f9cdab85e0a52613, type: 3}
+  wallLayer:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!1 &5778358114887162281
 GameObject:
   m_ObjectHideFlags: 0
