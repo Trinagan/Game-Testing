@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5631000007761091311}
   - component: {fileID: 6608654465757068944}
   - component: {fileID: 8801432779657938785}
+  - component: {fileID: 9164664127078793243}
   m_Layer: 0
   m_Name: Biomass
   m_TagString: Untagged
@@ -103,6 +104,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a3c8bb5d5175ec48b880ac815ae400a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scrapDrop: 0
+  biomassDrop: 0
+  weaponPartsDrop: 0
 --- !u!58 &5631000007761091311
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -203,3 +207,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &9164664127078793243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7800450342669060274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a3c8bb5d5175ec48b880ac815ae400a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scrapDrop: 0
+  biomassDrop: 0
+  weaponPartsDrop: 0

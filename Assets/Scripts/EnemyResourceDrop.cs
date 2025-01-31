@@ -42,7 +42,7 @@ public class EnemyResourceDrop : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(enemyController.health <= 0)
+        if(enemyController.CurrentHealth <= 0)
         {
                 GameObject scrapInstance = Instantiate(scrap, transform.position, transform.rotation);
                 ResourceOnDrop scrapDropInstance = scrapInstance.GetComponent<ResourceOnDrop>();

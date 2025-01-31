@@ -11,7 +11,6 @@ public class EnemyController : MonoBehaviour
     private CircleCollider2D col;
     public float detectRange;
     private PlayerController playerController;
-    public float health = 100;
     public float contactDamage = 20;
     public float fleeDistance = 15f;
     public int fleeAngleSteps = 12;
@@ -38,7 +37,6 @@ public class EnemyController : MonoBehaviour
     };
 
     public EnemyTypes enemyType;
-    private Rigidbody2D rig;
 
     // Implementing a base stat (which can be altered by factors) -> Max stat -> current stat system
     // this way we're set up for possible things like healing (but capping at max hp) etc
