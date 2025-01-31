@@ -15,8 +15,12 @@ public class PlayerController : MonoBehaviour
     private Vector3 mousePos;
     public GameObject bullet;
 
+    public PlayerHealthSystem playerHealthSystem;
+
+    
     void Start()
     {
+        playerHealthSystem = new PlayerHealthSystem(this); // Invoke the PHS and pass myself to it so it can call back
         Cursor.visible = false;
         rig = GetComponent<Rigidbody2D>();
         weaponOffset = GameObject.Find("Player/weaponOffset").GetComponent<Transform>();
@@ -33,12 +37,27 @@ public class PlayerController : MonoBehaviour
         FollowMouse();
         ShootBullet();
 
-        if (health <= 0)
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        }
+        playerHealthSystem.CalculateStats();
 
+        // This is no longer how we handle player health and death. PlayerHealthSystem will
+        // manage it all and call back to this controller's OnPlayerDeath method when all limbs are deadge
+        //if (health <= 0)
+        //{
+        //    SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        //}
+        
         // Debug.Log(mousePos- transform.position);
+    }
+
+    public void OnTakeDamage(int DamageAmount)
+    {
+        playerHealthSystem.TakeDamage(DamageAmount);
+    }
+
+    public void OnPlayerDeath()
+    {
+        // Trigger animations, fiddle with whatever stats you need, change gamestate etc etc
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void MoveH(float move)
@@ -78,7 +97,11 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Bullet") && collision != null)
         {
-            health -= 20;
+            // This will need to be a bit smarter in future.
+            // Probably pre-calc the total raw damage in the enemy controller
+            // which'd be a convenient way to factor in enemy stats etc etc before
+            // applying mitigation in the PHS
+            OnTakeDamage(50); 
         }
     }
 }
